@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import "./signupPage.css"; // Import the CSS file
+import "./signupPage.css"; // Import the CSS file\
+import {Link} from "react-router-dom";  
 
 const SignupPage = () => {
   const [fullName, setFullName] = useState("");
@@ -28,7 +29,7 @@ const SignupPage = () => {
     <div className="signup-container">
       <div className="signup-box">
         <div className="logo-container">
-          <img src="/FluxfundLogo.jpg" alt="FluxFund Logo" className="logo" />
+          <img src="/FluxfundLogo.png" alt="FluxFund Logo" className="logo" />
         </div>
         <h2 className="signup-title">Create an Account</h2>
 
