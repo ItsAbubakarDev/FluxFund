@@ -1,0 +1,70 @@
+/* Footer.css */
+
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
+.footer {
+    background-color: #FAF6E9;
+    padding: 40px 20px 20px;
+    color: #333;
+    font-family: sans-serif;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    position: relative;
+    border-top: 2px solid #DDEB9D;
+    width: 100vw;
+  }
+  
+  .footer-section {
+    flex: 1 1 200px;
+    margin: 10px;
+  }
+  
+  .logo {
+    width: 120px;
+    height: auto;
+  }
+  
+  
+  .description {
+    margin-top: 10px;
+    color: #555;
+  }
+  
+  .footer-section h4 {
+    margin-bottom: 10px;
+    color: #A0C878;
+  }
+  
+  .footer-section a {
+    display: block;
+    color: #333;
+    text-decoration: none;
+    margin-bottom: 6px;
+    transition: color 0.3s;
+  }
+  
+  .footer-section a:hover {
+    color: #8CB965;
+  }
+  
+  .footer-section input[type="email"] {
+    padding: 8px;
+    width: 80%;
+    border: 1px solid #DDEB9D;
+    border-radius: 4px;
+    margin-bottom: 8px;
+    background-color: #FFFDF6;
+  }
+  
+  .footer-bottom {
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+    font-size: 14px;
+    color: #777;
+  }
+  

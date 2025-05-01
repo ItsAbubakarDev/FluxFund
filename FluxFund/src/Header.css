@@ -1,0 +1,66 @@
+/* Header.css */
+
+.header {
+    background-color: #FFFDF6;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 32px;
+    border-bottom: 2px solid #DDEB9D;
+    min-height: 60px;
+  }
+
+  .header-left {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    flex-grow: 1;
+  }
+
+  .header-right {
+    display: flex;
+    gap: 16px;
+}
+  
+  .logo {
+    height: 40px;
+    width: auto;
+    display: block;
+  }
+  
+  .nav-links {
+    display: flex;
+    gap: 24px;
+    margin-left: 40px;
+  }
+  
+  .nav-links Link {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s;
+  }
+  
+  .nav-links Link:hover {
+    color: #A0C878;
+  }
+  
+  .auth-buttons {
+    display: flex;
+    gap: 16px;
+  }
+  
+  .auth-link {
+    text-decoration: none;
+    color: #fff;
+    background-color: #A0C878;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: background-color 0.3s;
+  }
+  
+  .auth-link:hover {
+    background-color: #8CB965;
+  }
+  

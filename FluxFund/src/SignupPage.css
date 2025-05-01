@@ -97,6 +97,7 @@ body {
 }
 
 .login-link {
+  color: black;
   margin-top: 20px;
   font-size: 14px;
 }
