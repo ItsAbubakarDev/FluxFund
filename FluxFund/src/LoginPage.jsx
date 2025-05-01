@@ -1,5 +1,5 @@
-// LoginPage.jsx
 import React, { useState } from "react";
+import { Link } from "react-router-dom"; // Import Link component
 import "./loginPage.css"; // Import the CSS file
 
 const LoginPage = () => {
@@ -25,11 +25,11 @@ const LoginPage = () => {
         <div className="logo-container">
           <img src="/FluxfundLogo.png" alt="FluxFund Logo" className="logo" />
         </div>
-        
+
         <h2 className="login-title">Welcome Back to FluxFund</h2>
-        
+
         {error && <p className="error-message">{error}</p>}
-        
+
         <form onSubmit={handleLogin} className="login-form">
           <div className="input-group">
             <label className="input-label" htmlFor="email">Email</label>
@@ -58,7 +58,7 @@ const LoginPage = () => {
 
         {/* Signup reference */}
         <div className="signup-link">
-          <p>Don't have an account? <a href="/signup">Sign up here</a></p>
+          <p>Don't have an account? <Link to="/signup">Sign up here</Link></p> {/* Updated Link */}
         </div>
       </div>
     </div>
