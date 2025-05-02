@@ -22,8 +22,8 @@ body, html {
     flex: 1 1 200px;
     margin: 10px;
   }
-  
-  .logo {
+
+  .footerLogo {
     width: 120px;
     height: auto;
   }

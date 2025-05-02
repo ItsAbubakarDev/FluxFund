@@ -1,6 +1,5 @@
 import React from "react";
 import "./ContactUs.css";
-import { Facebook, Twitter, Linkedin } from "lucide-react";
 
 const ContactUs = () => {
   return (

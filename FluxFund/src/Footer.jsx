@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer-section company-info">
-        <img src="/FluxfundLogo.png" alt="FluxFund Logo" className="logo" />
+        <img src="/FluxfundLogo.png" alt="FluxFund Logo" className="footerLogo" />
         <p className="description">[Company description here]</p>
       </div>
 

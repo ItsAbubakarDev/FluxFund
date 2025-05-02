@@ -1,0 +1,78 @@
+.home-container {
+    background-color: #fffdf6;
+    color: #333;
+    font-family: 'Segoe UI', sans-serif;
+    padding: 2rem;
+  }
+  
+  h1, h2 {
+    color: #a0c878;
+  }
+  
+  .intro {
+    text-align: center;
+    padding: 2rem;
+    background-color: #faf6e9;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+  }
+  
+  .top-campaigns,
+  .random-campaigns,
+  .create-campaign,
+  .vote-section {
+    background-color: #faf6e9;
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  li {
+    margin-bottom: 0.5rem;
+  }
+  
+  input[type="text"] {
+    padding: 0.5rem;
+    margin-right: 1rem;
+    border: 1px solid #dde99d;
+    border-radius: 6px;
+    width: 60%;
+  }
+  
+  button {
+    padding: 0.4rem 1rem;
+    background-color: #a0c878;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    color: white;
+  }
+  
+  .rating-buttons button {
+    margin-right: 5px;
+    background-color: #ddeb9d;
+    color: #333;
+  }
+  
+  .rating-buttons button:hover {
+    background-color: #a0c878;
+    color: white;
+  }
+  
+  .wallet-section {
+    text-align: center;
+    margin-top: 3rem;
+  }
+  
+  .wallet-button {
+    font-size: 1rem;
+    background-color: #ddeb9d;
+    padding: 0.7rem 1.5rem;
+    border-radius: 12px;
+  }
+  
