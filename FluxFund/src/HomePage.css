@@ -1,3 +1,17 @@
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow-x: hidden;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
 .home-container {
     background-color: #fffdf6;
     color: #333;
@@ -42,6 +56,7 @@
     border: 1px solid #dde99d;
     border-radius: 6px;
     width: 60%;
+    background-color: #FFFDF6;
   }
   
   button {

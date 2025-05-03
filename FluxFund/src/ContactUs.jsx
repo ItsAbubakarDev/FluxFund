@@ -1,5 +1,6 @@
 import React from "react";
 import "./ContactUs.css";
+import { FaFacebook, FaTwitter, FaLinkedin } from "react-icons/fa";
 
 const ContactUs = () => {
   return (
@@ -27,13 +28,13 @@ const ContactUs = () => {
 
         <div className="social-links">
           <a href="https://facebook.com" target="_blank" rel="noreferrer">
-            <Facebook />
+            <FaFacebook />
           </a>
           <a href="https://twitter.com" target="_blank" rel="noreferrer">
-            <Twitter />
+            <FaTwitter />
           </a>
           <a href="https://linkedin.com" target="_blank" rel="noreferrer">
-            <Linkedin />
+            <FaLinkedin />
           </a>
         </div>
       </div>

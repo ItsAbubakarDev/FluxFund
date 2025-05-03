@@ -1,7 +1,21 @@
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow-x: hidden;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
 .contact-container {
     background-color: #FFFDF6;
     padding: 40px 20px;
-    min-height: 100vh;
+    min-height: 100dvh;
     color: #333;
   }
   
@@ -41,6 +55,7 @@
     border-radius: 8px;
     width: 100%;
     box-sizing: border-box;
+    background-color: #FFFDF6;
   }
   
   .contact-form .form-row input {

@@ -9,21 +9,20 @@ import ContactUs from "./ContactUs";
 import LoginPage from "./LoginPage";
 import SignupPage from "./SignupPage";
 
+
 const App = () => {
   return (
     <Router>
       <div className="app-container">
-        <Header />
         <main className="main-content"> {/* Semantic HTML */}
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<AboutUs />} />
-            <Route path="/contact" element={<ContactUs />} />
+            <Route path="/" element={<><Header /><Home /><Footer /></>} />
+            <Route path="/about" element={<><Header /><AboutUs /><Footer /></>} />
+            <Route path="/contact" element={<><Header /><ContactUs /><Footer /></>} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/signup" element={<SignupPage />} /> 
           </Routes>
         </main>
-        <Footer />
       </div>
     </Router>
   );

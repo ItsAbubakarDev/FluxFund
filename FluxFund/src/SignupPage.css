@@ -74,6 +74,11 @@ body {
   border-radius: 8px;
   background-color: #FFFDF6; /* lightest color */
   outline: none;
+  color: black;
+  width: 100%;
+  min-width: 100%;
+  box-sizing: border-box;
+  
 }
 
 .input-field:focus {

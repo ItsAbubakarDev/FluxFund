@@ -45,6 +45,7 @@ const SignupPage = () => {
               onChange={(e) => setFullName(e.target.value)}
               required
               className="input-field"
+              placeholder="Enter your fullname here"
             />
           </div>
           <div className="input-group">
@@ -56,6 +57,7 @@ const SignupPage = () => {
               onChange={(e) => setEmail(e.target.value)}
               required
               className="input-field"
+              placeholder="Enter your email"
             />
           </div>
           <div className="input-group">
@@ -67,6 +69,7 @@ const SignupPage = () => {
               onChange={(e) => setPassword(e.target.value)}
               required
               className="input-field"
+              placeholder="Enter password"
             />
           </div>
           <div className="input-group">
@@ -78,6 +81,7 @@ const SignupPage = () => {
               onChange={(e) => setConfirmPassword(e.target.value)}
               required
               className="input-field"
+              placeholder="Enter password"
             />
           </div>
           <button type="submit" className="signup-button">Sign Up</button>
