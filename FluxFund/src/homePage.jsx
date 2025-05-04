@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./HomePage.css";
+import GroupOfCampaign from "./GroupOfCampaigns";
 
 const campaignsMock = [
   { id: 1, name: "Clean Water Initiative", votes: 95 },
@@ -19,11 +20,30 @@ const HomePage = () => {
   const [newCampaign, setNewCampaign] = useState({ name: "" });
   const [votes, setVotes] = useState({});
 
+  const sortedTop8 = [...campaigns]
+    .sort((a, b) => b.votes - a.votes)
+    .slice(0, 8);
+
+  const [showAllTop, setShowAllTop] = useState(false);
+
   const handleCreateCampaign = () => {
-    if (newCampaign.name.trim() !== "") {
+    if (
+      newCampaign.name.trim() !== "" &&
+      newCampaign.description.trim() !== "" &&
+      newCampaign.photo
+    ) {
       const newId = campaigns.length + 1;
-      setCampaigns([...campaigns, { id: newId, name: newCampaign.name, votes: 0 }]);
-      setNewCampaign({ name: "" });
+      setCampaigns([
+        ...campaigns,
+        {
+          id: newId,
+          name: newCampaign.name,
+          description: newCampaign.description,
+          votes: 0,
+          photo: newCampaign.photo,
+        },
+      ]);
+      setNewCampaign({ name: "", description: "", photo: null });
     }
   };
 
@@ -46,15 +66,20 @@ const HomePage = () => {
       </section>
 
       <section className="top-campaigns">
-        <h2>🏆 Top 10 Campaigns</h2>
-        <ul>
-          {topCampaigns.map(c => (
-            <li key={c.id}>
-              {c.name} - {c.votes} votes
-            </li>
-          ))}
-        </ul>
+        <h2>🏆 Top 8 Campaigns</h2>
+        <GroupOfCampaign campaigns={sortedTop8.slice(0, 4)} />
+        
+        {showAllTop && (
+          <GroupOfCampaign campaigns={sortedTop8.slice(4, 8)} />
+        )}
+
+        <div className="toggle-row-button">
+          <button onClick={() => setShowAllTop(prev => !prev)}>
+            {showAllTop ? "▲ Show Less" : "▼ Show More"}
+          </button>
+        </div>
       </section>
+
 
       <section className="random-campaigns">
         <h2>📢 Explore Campaigns</h2>
@@ -63,36 +88,51 @@ const HomePage = () => {
             <li key={c.id}>{c.name}</li>
           ))}
         </ul>
+        <GroupOfCampaign />
       </section>
 
       <section className="create-campaign">
         <h2>📝 Create a Campaign</h2>
         <input
           type="text"
-          placeholder="Enter campaign name"
+          placeholder="Enter campaign title"
           value={newCampaign.name}
-          onChange={(e) => setNewCampaign({ name: e.target.value })}
+          onChange={(e) => setNewCampaign({ ...newCampaign, name: e.target.value })}
+        />
+        <textarea
+          placeholder="Enter campaign description"
+          value={newCampaign.description}
+          onChange={(e) =>
+            setNewCampaign({ ...newCampaign, description: e.target.value })
+          }
+        />
+        <input
+          type="file"
+          accept="image/*"
+          onChange={(e) => setNewCampaign({ ...newCampaign, photo: e.target.files[0] })}
         />
         <button onClick={handleCreateCampaign}>Create</button>
       </section>
 
       <section className="vote-section">
-        <h2>⭐ Rate Campaigns</h2>
-        <ul>
-          {campaigns.map(c => (
-            <li key={c.id}>
-              {c.name}
-              <div className="rating-buttons">
-                {[1, 2, 3, 4, 5].map(rating => (
-                  <button key={rating} onClick={() => handleVote(c.id, rating)}>
-                    {rating}★
-                  </button>
-                ))}
-              </div>
-            </li>
-          ))}
-        </ul>
+        <h2>⭐ Vote on Campaigns</h2>
+        <GroupOfCampaign
+          campaigns={campaigns.slice(0, 4)}
+          onVote={(id, value) => {
+            const updated = campaigns.map(c =>
+              c.id === id ? { ...c, votes: c.votes + value } : c
+            );
+            setCampaigns(updated);
+          }}
+        />
+        <div className="toggle-row-button">
+          <button onClick={() => window.location.href = "/all-campaigns"}>
+            ▼ Show More
+          </button>
+        </div>
       </section>
+
+
 
       <footer className="wallet-section">
         <button className="wallet-button">🔗 Connect Wallet</button>

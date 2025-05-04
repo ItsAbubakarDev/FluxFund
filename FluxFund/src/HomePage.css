@@ -50,15 +50,22 @@ body {
     margin-bottom: 0.5rem;
   }
   
-  input[type="text"] {
+  input[type="text"],
+  textarea,
+  input[type="file"] {
     padding: 0.5rem;
-    margin-right: 1rem;
+    margin-bottom: 1rem;
     border: 1px solid #dde99d;
     border-radius: 6px;
     width: 60%;
-    background-color: #FFFDF6;
+    background-color: #fffdf6;
   }
   
+  textarea {
+    height: 150px;
+    resize: vertical;
+  }
+
   button {
     padding: 0.4rem 1rem;
     background-color: #a0c878;
@@ -67,17 +74,28 @@ body {
     cursor: pointer;
     color: white;
   }
-  
-  .rating-buttons button {
-    margin-right: 5px;
-    background-color: #ddeb9d;
-    color: #333;
+
+  button:hover {
+    background-color: #8bbf67;
+  }
+
+  .voting-buttons {
+    margin-top: 0.5rem;
   }
   
-  .rating-buttons button:hover {
+  .voting-buttons button {
+    margin-right: 0.5rem;
+    background-color: #dde99d;
+    color: #333;
+    padding: 0.3rem 0.8rem;
+    border-radius: 6px;
+  }
+  
+  .voting-buttons button:hover {
     background-color: #a0c878;
     color: white;
   }
+  
   
   .wallet-section {
     text-align: center;
@@ -89,5 +107,40 @@ body {
     background-color: #ddeb9d;
     padding: 0.7rem 1.5rem;
     border-radius: 12px;
+  }
+  
+
+  .toggle-row-button {
+    text-align: center;
+    margin-top: 1rem;
+  }
+  
+  .toggle-row-button button {
+    background-color: #dde99d;
+    color: #333;
+    padding: 0.5rem 1.2rem;
+    font-weight: bold;
+    border-radius: 8px;
+  }
+  
+  .toggle-row-button button:hover {
+    background-color: #a0c878;
+    color: white;
+  }
+  
+  .create-campaign input[type="file"] {
+    margin-bottom: 1rem;
+    background-color: #fffdf6;
+  }
+  
+  .create-campaign input[type="file"]::file-selector-button {
+    background-color: #a0c878;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 6px;
+  }
+
+  .create-campaign button {
+    margin-left: 0.5rem;
   }
   

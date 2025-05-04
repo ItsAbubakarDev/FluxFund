@@ -1,0 +1,17 @@
+.group-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 100%;
+    background-color: #FFFDF6;
+    padding: 16px;
+    gap: 16px; /* spacing between blocks */
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+  
+  .group-container > * {
+    width: calc((100% - 48px) / 4); /* 4 blocks with 3 gaps (3 * 16px = 48px) */
+    box-sizing: border-box;
+  }
+  
