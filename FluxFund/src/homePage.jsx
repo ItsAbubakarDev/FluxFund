@@ -135,7 +135,7 @@ const HomePage = () => {
 
 
       <footer className="wallet-section">
-        <button className="wallet-button">🔗 Connect Wallet</button>
+        {/* <button className="wallet-button">🔗 Connect Wallet</button> */}
       </footer>
     </div>
   );

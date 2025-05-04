@@ -102,14 +102,6 @@ body {
     text-align: center;
     margin-top: 3rem;
   }
-  
-  .wallet-button {
-    font-size: 1rem;
-    background-color: #ddeb9d;
-    padding: 0.7rem 1.5rem;
-    border-radius: 12px;
-  }
-  
 
   .toggle-row-button {
     text-align: center;
@@ -140,7 +132,12 @@ body {
     padding: 0.5rem;
     border-radius: 6px;
   }
-
+  .wallet-button {
+    font-size: 1rem;
+    background-color: #ffb05c;
+    padding: 0.7rem 1.5rem;
+    border-radius: 12px;
+  }
   .create-campaign button {
     margin-left: 0.5rem;
   }
