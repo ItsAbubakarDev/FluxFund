@@ -126,7 +126,7 @@ const HomePage = () => {
           }}
         />
         <div className="toggle-row-button">
-          <button onClick={() => window.location.href = "/all-campaigns"}>
+          <button onClick={() => window.location.href = "/campaigns"}>
             ▼ Show More
           </button>
         </div>
