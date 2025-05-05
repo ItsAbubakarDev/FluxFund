@@ -91,14 +91,14 @@ const HomePage = () => {
         <h2>⭐ Vote on Campaigns</h2>
         <GroupOfCampaign campaigns={campaigns.slice(0, 4)} onVote={handleVote} />
         <div className="toggle-row-button">
-          <button onClick={() => window.location.href = "/all-campaigns"}>
+          <button onClick={() => window.location.href = "/campaigns"}>
             ▼ Show More
           </button>
         </div>
       </section>
 
       <footer className="wallet-section">
-        <button className="wallet-button">🔗 Connect Wallet</button>
+        {/* <button className="wallet-button">🔗 Connect Wallet</button> */}
       </footer>
     </div>
   );
