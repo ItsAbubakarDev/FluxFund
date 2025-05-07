@@ -9,7 +9,12 @@ const Campaign = ({ image, title, description, votes: initialVotes }) => {
   };
 
   const downVote = () => {
-    setVotes(votes - 1);
+    if(votes>0){
+      setVotes(votes - 1);
+    }
+    else{
+      votes = 0;
+    }
   };
 
   return (
