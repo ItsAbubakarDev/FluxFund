@@ -61,6 +61,7 @@ const LoginPage = () => {
         {/* Signup reference */}
         <div className="signup-link">
           <p>Don't have an account? <Link to="/signup">Sign up here</Link></p> {/* Updated Link */}
+          <a href="#">Forgot Password?</a>
         </div>
       </div>
     </div>
