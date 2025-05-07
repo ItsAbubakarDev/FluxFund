@@ -22,7 +22,9 @@ const Header = () => {
   return (
     <header className="header">
       <div className="header-left">
+      <a href="/">
         <img src={logo} alt="FluxFund Logo" className="header-logo" />
+      </a>
         <nav className="header-nav">
           <Link to="/" className="nav-links-header">Home</Link>
           <Link to="/campaigns" className="nav-links-header">All Campaigns</Link>

@@ -23,7 +23,9 @@ const LoginPage = () => {
       <div className="login-box">
         {/* Logo */}
         <div className="logo-container">
+          <a href="/"> 
           <img src="/FluxfundLogo.png" alt="FluxFund Logo" className="logo" />
+          </a>
         </div>
 
         <h2 className="login-title">Welcome Back to FluxFund</h2>

@@ -28,8 +28,10 @@ const SignupPage = () => {
   return (
     <div className="signup-container">
       <div className="signup-box">
-        <div className="logo-container">
+      <div className="logo-container">
+          <a href="/"> 
           <img src="/FluxfundLogo.png" alt="FluxFund Logo" className="logo" />
+          </a>
         </div>
         <h2 className="signup-title">Create an Account</h2>
 
