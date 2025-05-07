@@ -3,36 +3,40 @@ import "./Campaign.css";
 
 const Campaign = ({ image, title, description, votes: initialVotes }) => {
   const [votes, setVotes] = useState(initialVotes);
-  const [userVote, setUserVote] = useState(null); // null, 'up', 'down'
+  const [isUpVoted, setIsUpVoted] = useState(false);
+  const [isDownVoted, setIsDownVoted] = useState(false);
 
   const handleUpVote = () => {
-    if (userVote === 'up') {
-      // already upvoted → do nothing
-      return;
-    }
-    if (userVote === 'down') {
-      // switching from downvote → add +2 (remove downvote and apply upvote)
-      setVotes(votes + 2);
-    } else {
-      // first time upvote
+      setIsUpVoted(true);
+  };
+  const handleDownVote = () => {
+    setIsUpVoted(false);
+  }
+
+  const handleVote = (isUpVoted) => {
+    if(isUpVoted){
       setVotes(votes + 1);
+      setIsUpVoted(true);
+      setIsDownVoted(false);
     }
-    setUserVote('up');
+    else{
+      setVotes(votes - 1);
+      setIsUpVoted(false);
+      setIsDownVoted(true);
+    }
+  }
+    
+  const upVote = () => {
+    setVotes(votes + 1);
   };
 
-  const handleDownVote = () => {
-    if (userVote === 'down') {
-      // already downvoted → do nothing
-      return;
-    }
-    if (userVote === 'up') {
-      // switching from upvote → subtract 2 (remove upvote and apply downvote)
-      setVotes(votes - 2);
-    } else {
-      // first time downvote
+  const downVote = () => {
+    if(votes>0){
       setVotes(votes - 1);
     }
-    setUserVote('down');
+    else{
+      votes = 0;
+    }
   };
 
   return (
@@ -43,18 +47,8 @@ const Campaign = ({ image, title, description, votes: initialVotes }) => {
         <p className="campaign-description">{description}</p>
         <div className="campaign-votes">Votes: {votes}</div>
         <div className="campaign-actions">
-          <button
-            onClick={handleUpVote}
-            disabled={userVote === 'up'}
-          >
-            ⬆ Upvote
-          </button>
-          <button
-            onClick={handleDownVote}
-            disabled={userVote === 'down'}
-          >
-            ⬇ Downvote
-          </button>
+          <button onClick={upVote}>⬆ Upvote</button>
+          <button onClick={downVote}>⬇ Downvote</button>
         </div>
       </div>
     </div>
