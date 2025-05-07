@@ -6,25 +6,25 @@ const GroupOfCampaign = () => {
   return (
     <div className="group-container">
       <Campaign
-        image="https://via.placeholder.com/300x180?text=Campaign+1"
+        image="Clean water initiative.png"
         title="Clean Water Initiative"
         description="Providing clean water to remote villages."
         votes={120}
       />
       <Campaign
-        image="https://via.placeholder.com/300x180?text=Campaign+2"
+        image="Solar Energy Request.png"
         title="Solar Energy Access"
         description="Solar power for rural homes."
         votes={98}
       />
       <Campaign
-        image="https://via.placeholder.com/300x180?text=Campaign+3"
+        image="Tree planting mission.jpeg"
         title="Tree Planting Mission"
         description="Planting 10,000 trees globally."
         votes={305}
       />
       <Campaign
-        image="https://via.placeholder.com/300x180?text=Campaign+4"
+        image="Education for all.jpeg"
         title="Education for All"
         description="Building schools in underprivileged areas."
         votes={214}

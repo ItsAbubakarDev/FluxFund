@@ -20,9 +20,9 @@ const ContactUs = () => {
 
         <div className="company-info">
           <h2>Company Info</h2>
-          <p>📍 1234 Your Street, City, Country</p>
-          <p>📧 support@yourcompany.com</p>
-          <p>📞 +123-456-7890</p>
+          <p>📍 Hostel City, Islamabad, Pakistan</p>
+          <p>📧 support@FluxFund.com</p>
+          <p>📞 +92-3241552881</p>
           <p>🕒 Mon - Fri: 9:00 AM - 6:00 PM</p>
         </div>
 
