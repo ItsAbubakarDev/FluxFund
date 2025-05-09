@@ -1,0 +1,49 @@
+.all-campaigns-container {
+    background-color: #FFFDF6;
+    padding: 24px;
+    min-height: 100vh;
+  }
+  
+  .all-campaigns-title {
+    color: #A0C878;
+    text-align: center;
+    margin-bottom: 32px;
+    font-size: 2rem;
+  }
+  
+  .campaign-group {
+    margin-bottom: 40px;
+  }
+  
+  .group-title {
+    color: #6B8E23;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #DDEB9D;
+    font-size: 1.5rem;
+  }
+  
+  .campaigns-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 1200px) {
+    .campaigns-row {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  @media (max-width: 900px) {
+    .campaigns-row {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .campaigns-row {
+      grid-template-columns: 1fr;
+    }
+  }

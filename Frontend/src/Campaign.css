@@ -1,0 +1,64 @@
+.campaign-card {
+    background-color: #FAF6E9;
+    border: 2px solid #DDEB9D;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease;
+    width: 300px;
+    margin: 16px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .campaign-card:hover {
+    transform: scale(1.03);
+  }
+  
+  .campaign-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+  }
+  
+  .campaign-content {
+    padding: 16px;
+    background-color: #FFFDF6;
+  }
+  
+  .campaign-title {
+    font-size: 1.25rem;
+    margin: 0 0 8px;
+    color: #A0C878;
+  }
+  
+  .campaign-description {
+    font-size: 0.95rem;
+    color: #444;
+    margin-bottom: 12px;
+  }
+  
+  .campaign-votes {
+    font-weight: bold;
+    color: #6B8E23;
+  }
+  
+  .campaign-actions {
+    margin-top: 0.5rem;
+  }
+
+  .campaign-actions button {
+    padding: 0.4rem 0.8rem;
+    margin-right: 0.5rem;
+    background-color: #ddeb9d;
+    color: #333;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+  }
+
+  .campaign-actions button:hover {
+    background-color: #a0c878;
+    color: white;
+  }
