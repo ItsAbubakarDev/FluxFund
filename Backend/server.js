@@ -140,20 +140,85 @@ app.get("/auth/google/callback", async (req, res) => {
   }
 });
 
-// Create campaign
+// Campaign:
+// Create campaign (NEW)
 app.post("/api/campaigns", upload.single("photo"), async (req, res) => {
   try {
-    const campaign = new Campaign({
+    console.log("Received files:", req.file); // Debug file upload
+    console.log("Received body:", req.body); // Debug other fields
+
+    // Validate required fields
+    if (!req.body.name || !req.body.description) {
+      return res.status(400).json({ error: "Name and description are required" });
+    }
+
+    // Process tags into array
+    const tags = req.body.tags 
+      ? req.body.tags.split(',').map(tag => tag.trim())
+      : [];
+
+    const newCampaign = new Campaign({
       name: req.body.name,
       description: req.body.description,
       photoUrl: req.file ? `/uploads/${req.file.filename}` : null,
+      tags: tags,
       votes: 0,
-      tags: req.body.tags ? req.body.tags.split(",").map(tag => tag.trim()) : []
+      voters: [],
+      createdAt: new Date()
     });
-    await campaign.save();
-    res.status(201).json(campaign);
+
+    const savedCampaign = await newCampaign.save();
+    console.log("Saved campaign:", savedCampaign); // Debug
+
+    res.status(201).json(savedCampaign);
   } catch (err) {
-    res.status(500).json({ error: "Failed to create campaign" });
+    console.error("Campaign creation error:", err);
+    
+    // Cleanup uploaded file if save failed
+    if (req.file) {
+      const fs = require('fs');
+      fs.unlinkSync(req.file.path);
+    }
+    
+    res.status(500).json({ 
+      error: "Failed to create campaign",
+      details: err.message 
+    });
+  }
+});
+
+// Create campaign
+app.post("/api/campaigns/:id/vote", async (req, res) => {
+  try {
+    const { rating, userId } = req.body;
+    const campaign = await Campaign.findById(req.params.id);
+    
+    if (!campaign) return res.status(404).json({ error: "Campaign not found" });
+
+    // Check if user already voted
+    const existingVote = campaign.voters.find(v => v.userId === userId);
+    let voteChange = 0;
+
+    if (existingVote) {
+      // User changing vote
+      voteChange = rating - existingVote.rating;
+      existingVote.rating = rating;
+    } else {
+      // New vote
+      voteChange = rating;
+      campaign.voters.push({ userId, rating });
+    }
+
+    campaign.votes += voteChange;
+    await campaign.save();
+    
+    res.json({
+      success: true,
+      newVotes: campaign.votes,
+      userVote: rating
+    });
+  } catch (err) {
+    res.status(500).json({ error: "Voting failed", details: err.message });
   }
 });
 
@@ -264,6 +329,7 @@ app.post("/api/signup", async (req, res) => {
     });
   }
 });
+
 
 // Token test endpoint (NEW)
 app.get("/test-token", async (req, res) => {
