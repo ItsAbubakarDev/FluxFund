@@ -3,11 +3,11 @@
   justify-content: center;
   padding: 2rem;
   min-height: 100vh;
-  background-color: #f5f7fa;
+  background-color: #FFFDF6; /* Light cream background */
 }
 
 .create-campaign-card {
-  background: white;
+  background: #FAF6E9; /* Soft beige card background */
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   padding: 2.5rem;
@@ -17,7 +17,7 @@
 
 .create-campaign-title {
   font-size: 1.8rem;
-  color: #2d3748;
+  color: #5a7247; /* Darker green for contrast */
   margin-bottom: 2rem;
   text-align: center;
 }
@@ -36,26 +36,27 @@
 
 .form-label {
   font-weight: 600;
-  color: #4a5568;
+  color: #5a7247; /* Darker green */
   font-size: 0.95rem;
 }
 
 .required {
-  color: #e53e3e;
+  color: #d9534f; /* Keeping red for required fields */
 }
 
 .form-input, .form-textarea {
   padding: 0.8rem 1rem;
-  border: 1px solid #e2e8f0;
+  border: 1px solid #DDEB9D; /* Light green border */
   border-radius: 8px;
   font-size: 1rem;
   transition: border-color 0.2s;
+  background-color: #FFFDF6; /* Light cream background */
 }
 
 .form-input:focus, .form-textarea:focus {
   outline: none;
-  border-color: #4299e1;
-  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.1);
+  border-color: #A0C878; /* Medium green for focus */
+  box-shadow: 0 0 0 3px rgba(160, 200, 120, 0.2); /* Green shadow */
 }
 
 .form-textarea {
@@ -70,9 +71,9 @@
 .file-upload-label {
   display: block;
   padding: 0.8rem 1rem;
-  border: 1px dashed #cbd5e0;
+  border: 1px dashed #DDEB9D; /* Light green dashed border */
   border-radius: 8px;
-  background-color: #f8fafc;
+  background-color: #FFFDF6; /* Light cream background */
   cursor: pointer;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -81,8 +82,8 @@
 }
 
 .file-upload-label:hover {
-  border-color: #4299e1;
-  background-color: #ebf8ff;
+  border-color: #A0C878; /* Medium green on hover */
+  background-color: #FAF6E9; /* Slightly darker cream */
 }
 
 .file-upload-input {
@@ -96,13 +97,13 @@
 }
 
 .form-hint {
-  color: #718096;
+  color: #7a8c63; /* Muted green */
   font-size: 0.85rem;
   margin-top: 0.25rem;
 }
 
 .submit-button {
-  background-color: #4299e1;
+  background-color: #A0C878; /* Medium green */
   color: white;
   padding: 1rem;
   border: none;
@@ -119,11 +120,11 @@
 }
 
 .submit-button:hover {
-  background-color: #3182ce;
+  background-color: #8ab560; /* Slightly darker green */
 }
 
 .submit-button:disabled {
-  background-color: #a0aec0;
+  background-color: #DDEB9D; /* Light green */
   cursor: not-allowed;
 }
 
@@ -142,10 +143,10 @@
 }
 
 .form-error {
-  color: #e53e3e;
-  background-color: #fff5f5;
+  color: #d9534f; /* Keeping red for errors */
+  background-color: #FFFDF6; /* Light cream background */
   padding: 0.8rem 1rem;
   border-radius: 8px;
   margin-bottom: 1.5rem;
-  border: 1px solid #fc8181;
+  border: 1px solid #d9534f; /* Red border */
 }

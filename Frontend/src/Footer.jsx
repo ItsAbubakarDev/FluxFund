@@ -6,7 +6,7 @@ const Footer = () => {
     <footer className="footer">
       <div className="footer-section company-info">
         <img src="/FluxfundLogo.png" alt="FluxFund Logo" className="footerLogo" />
-        <p className="description">[Company description here]</p>
+        <p className="description">Empowering projects through smart contract-based funding.</p>
       </div>
 
       <div className="footer-section legal-links">
@@ -30,8 +30,8 @@ const Footer = () => {
 
       <div className="footer-section contact-info">
         <h4>Contact</h4>
-        <p>Email: info@example.com</p>
-        <p>Phone: +1 234 567 890</p>
+        <p>abdurrehmannez@689@gmail.com</p>
+        <p>+923315169961</p>
       </div>
 
       <div className="footer-bottom">

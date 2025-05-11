@@ -66,6 +66,29 @@ const HomePage = () => {
         </button>
       </div>
 
+
+      <section className="top-campaigns">
+      <h2>🏆 Explore Campaign </h2>
+      <GroupOfCampaign
+        campaigns={top8Campaigns.sort(() => 0.5 - Math.random()).slice(0, 4)} 
+        onVote={handleVote}
+      />
+      {showAllTop && (
+        <GroupOfCampaign
+          campaigns={top8Campaigns
+            .filter(c => !randomCampaigns.includes(c)) // Exclude the first 4 random ones
+            .sort(() => 0.5 - Math.random())
+            .slice(0, 4)} 
+          onVote={handleVote} 
+        />
+      )}
+      <div className="toggle-row-button">
+        <button onClick={() => setShowAllTop((prev) => !prev)}>
+          {showAllTop ? "▲ Show Less" : "▼ Show More"}
+        </button>
+      </div>
+    </section>
+
       <section className="vote-section">
         <h2>⭐ Vote on Campaigns</h2>
         <GroupOfCampaign campaigns={campaigns.slice(0, 4)} onVote={handleVote} />
