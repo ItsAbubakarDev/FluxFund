@@ -110,3 +110,32 @@ body {
 .signup-link a:hover {
   text-decoration: underline;
 }
+
+
+.wallet-status {
+  margin: 15px 0;
+  text-align: center;
+}
+
+.connected-badge {
+  background: rgba(46, 204, 113, 0.2);
+  padding: 6px 12px;
+  border-radius: 20px;
+  color: #2ecc71;
+  font-family: monospace;
+}
+
+.wallet-connect-btn {
+  background: #3498db;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  transition: background 0.3s;
+}
+
+.wallet-connect-btn:hover {
+  background: #2980b9;
+}

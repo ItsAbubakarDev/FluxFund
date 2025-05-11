@@ -10,6 +10,7 @@ const bcrypt = require("bcryptjs");
 const passport = require("passport");
 const session = require("express-session");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
+const jwt = require("jsonwebtoken");
 
 const Campaign = require("./models/Campaign");
 const User = require("./models/User");
@@ -292,14 +293,6 @@ app.post("/api/signup", async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, await bcrypt.genSalt(10));
     const newUser = await new User({ fullName, email, password: hashedPassword }).save();
 
-    // Set credentials and force token refresh (UPDATED)
-    oauth2Client.setCredentials({
-      refresh_token: process.env.GOOGLE_REFRESH_TOKEN
-    });
-    
-    const { token } = await oauth2Client.getAccessToken();
-    if (!token) throw new Error("Failed to generate access token");
-
     // In server.js, replace the transporter with:
     const transporter = nodemailer.createTransport({
       service: 'gmail',
@@ -330,27 +323,63 @@ app.post("/api/signup", async (req, res) => {
   }
 });
 
-
-// Token test endpoint (NEW)
-app.get("/test-token", async (req, res) => {
+// User wallet linking endpoint
+app.patch('/api/users/:id/wallet', async (req, res) => {
   try {
-    oauth2Client.setCredentials({
-      refresh_token: process.env.GOOGLE_REFRESH_TOKEN
-    });
-    const { token } = await oauth2Client.getAccessToken();
-    res.json({ 
-      success: true,
-      token: token 
-    });
+    const user = await User.findByIdAndUpdate(
+      req.params.id,
+      { walletAddress: req.body.walletAddress },
+      { new: true, runValidators: true }
+    );
+    res.json(user);
   } catch (err) {
-    res.status(500).json({ 
-      error: "Token refresh failed",
-      details: err.message 
-    });
+    res.status(400).json({ error: err.message });
   }
 });
 
+// Enhanced login endpoint
+app.post("/api/login", async (req, res) => {
+  console.log("[BACKEND] Login request received:", req.body.email); // Add this
+
+  try {
+    const user = await User.findOne({ email: req.body.email });
+    console.log("[BACKEND] User found:", user?._id); // Add this
+
+    if (!user) {
+      console.log("[BACKEND] No user found for email:", req.body.email); // Add this
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    const isValid = await bcrypt.compare(req.body.password, user.password);
+    console.log("[BACKEND] Password validation result:", isValid); // Add this
+
+    if (!isValid) {
+      console.log("[BACKEND] Invalid password for user:", user._id); // Add this
+      return res.status(401).json({ message: "Invalid credentials" });
+    }
+
+    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
+    console.log("[BACKEND] Generated token for user:", user._id); // Add this
+
+    res.json({ 
+      token,
+      user: {
+        id: user._id,
+        email: user.email,
+        walletAddress: user.walletAddress
+      }
+    });
+
+  } catch (err) {
+    console.error("[BACKEND] Login processing error:", {
+      error: err,
+      stack: err.stack,
+      body: req.body
+    }); // Add this
+    res.status(500).json({ message: err.message });
+  }
+});
 
 // Start server
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

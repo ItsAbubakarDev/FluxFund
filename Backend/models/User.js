@@ -1,11 +1,15 @@
 const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
-  fullName: { type: String }, // Changed to optional
   email: { type: String, required: true, unique: true },
-  password: { type: String }, // Removed required: false (implied)
-  googleId: { type: String }, // Added for Google users
-  refreshToken: { type: String } // Added for email functionality
-});
+  password: { type: String },
+  walletAddress: {
+    type: String,
+    validate: {
+      validator: v => !v || /^0x[a-fA-F0-9]{40}$/.test(v),
+      message: "Invalid Ethereum address"
+    }
+  }
+}, { timestamps: true });
 
 module.exports = mongoose.model('User', userSchema);
